@@ -31,7 +31,7 @@ public class DemoApplication {
 		};
 	}
 
-//	@Bean
+	@Bean
 	public Employee getEmployee() {
 			return employeeRepository.save(new Employee(1L, "Dev", "Noida", 1000, 20, "IT"));
 	}
