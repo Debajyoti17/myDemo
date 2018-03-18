@@ -1,6 +1,10 @@
 package com.example.demo;
 
+import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -32,12 +36,28 @@ public class DemoApplication {
 	}
 
 	@Bean
-	public Employee getEmployee() {
-			return employeeRepository.save(new Employee(1L, "Dev", "Noida", 1000, 20, "IT"));
+	public List<Employee> getEmployee() {
+		List<Employee> empList = new ArrayList<Employee>();
+			 empList.add(employeeRepository.save(new Employee(1L, "Dev", "Noida", 1000, 20, "Dev")));
+			 empList.add(employeeRepository.save(new Employee(1L, "Shiv", "Gurgaon", 2000, 23, "Support")));
+			 empList.add(employeeRepository.save(new Employee(1L, "Varun", "Mumbai", 3000, 25, "Testing")));
+			 empList.add(employeeRepository.save(new Employee(1L, "Sara", "Delhi", 6000, 29, "Database")));
+			 empList.add(employeeRepository.save(new Employee(1L, "Daniel", "Kolkata", 8000, 24, "Production")));
+			 empList.add(employeeRepository.save(new Employee(1L, "Vishal", "Chennai", 4000, 26, "Management")));
+			 
+			 return empList;
 	}
-	/*@Bean
-	public Employee getNote() {
-		noteRepository.save(new Note(1L, "yes", "My note", "I am happy", new Timestamp(new Date().getTime())));
-}*/
+	
+//	@Bean
+	public List<Note> getNote() {
+		List<Note> noteList = new ArrayList<Note>();
+		noteList.add(noteRepository.save(new Note(1L, "yes", "My Day", "I am happy")));
+		noteList.add(noteRepository.save(new Note(2L, "yes", "My Tour", "I am in Noida")));
+		noteList.add(noteRepository.save(new Note(3L, "yes", "My Job", "I am in Sopra Steria")));
+		noteList.add(noteRepository.save(new Note(4L, "yes", "My Hobby", "Listening music")));
+		noteList.add(noteRepository.save(new Note(5L, "yes", "My Wish", "I wish......")));
+
+		return noteList;
+}
 
 }

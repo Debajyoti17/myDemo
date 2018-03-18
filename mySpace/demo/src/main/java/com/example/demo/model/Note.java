@@ -42,13 +42,13 @@ public class Note {
 	public Note() {
 	}
 
-	public Note(Long id, String status, String title, String content, Date createdAt) {
+	public Note(Long id, String status, String title, String content) {
 		super();
 		this.id = id;
 		this.status = status;
 		this.title = title;
 		this.content = content;
-		this.createdAt = createdAt;
+		this.createdAt =  new Timestamp(new Date().getTime());
 	}
 
 	public Long getId() {
